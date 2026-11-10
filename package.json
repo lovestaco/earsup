@@ -1,7 +1,26 @@
 {
   "name": "earsup",
   "private": true,
-  "version": "1.0.6",
+  "version": "1.0.7",
+  "description": "Chrome extension: press play on any heading and hear that section read aloud.",
+  "license": "MIT",
+  "author": "Maneshwar",
+  "homepage": "https://lovestaco.github.io/earsup/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lovestaco/earsup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lovestaco/earsup/issues"
+  },
+  "keywords": [
+    "chrome-extension",
+    "text-to-speech",
+    "read-aloud",
+    "tts",
+    "gemini",
+    "accessibility"
+  ],
   "type": "module",
   "scripts": {
     "build": "tsc --noEmit && vite build && vite build --config vite.scripts.config.ts --mode content && vite build --config vite.scripts.config.ts --mode background",
