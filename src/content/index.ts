@@ -772,6 +772,7 @@ async function boot() {
     playerActions.speed = () => (menu.hidden ? openMenu() : closeMenu());
     playerActions.showSpeed = showSpeed;
     enableDrag(el);
+    let partText = 'Reading';
     const api = {
       open(t: string) {
         if (!settings.miniPlayer) return;
@@ -796,7 +797,8 @@ async function boot() {
       },
       progress(i: number, n: number) {
         bar.style.transform = `scaleX(${i / n})`;
-        status.textContent = n > 1 ? `Part ${i} of ${n}` : 'Reading';
+        partText = n > 1 ? `Part ${i} of ${n}` : 'Reading';
+        if (!el.classList.contains('loading')) status.textContent = partText;
         pp.disabled = false;
       },
       setPaused(p: boolean) {
@@ -809,7 +811,7 @@ async function boot() {
       },
       setLoading(on: boolean) {
         el.classList.toggle('loading', on);
-        if (on) status.textContent = 'Fetching Gemini voice…';
+        status.textContent = on ? 'Fetching Gemini voice…' : partText;
       },
       error(m: string) {
         if (!settings.miniPlayer) return;
