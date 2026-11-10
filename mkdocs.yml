@@ -1,0 +1,92 @@
+site_name: EarsUp
+site_description: Press play on any heading and EarsUp reads that section aloud.
+site_url: https://lovestaco.github.io/earsup/
+repo_name: lovestaco/earsup
+repo_url: https://github.com/lovestaco/earsup
+edit_uri: edit/main/docs/
+
+exclude_docs: |
+  releases/_template.md
+
+hooks:
+  - scripts/rewrite_release_images.py
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  favicon: media/favicon.png
+  logo: media/icon-128.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+    - toc.follow
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.keys
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Installation:
+      - installation/index.md
+      - Update: installation/update.md
+      - Uninstall: installation/uninstall.md
+  - Usage:
+      - usage/index.md
+      - Play buttons: usage/play-buttons.md
+      - Floating player: usage/player.md
+      - Keys & shortcuts: usage/keys.md
+      - Follow along: usage/follow-along.md
+      - Voices: usage/voices.md
+      - Sites: usage/sites.md
+      - History: usage/history.md
+      - Settings panel: usage/settings.md
+  - Privacy: privacy.md
+  - Development: development.md
+  - Releases:
+      - releases/v1.0.7.md
+
+extra:
+  generator: false
