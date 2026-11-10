@@ -583,6 +583,7 @@ async function boot() {
     return null;
   };
   const run = (el: HTMLElement) => {
+    tips.hide(); // the page never sees this click, so the tooltip's own listener doesn't either
     if (el.dataset.act === 'read') {
       const h = headingOf.get(el);
       if (!h) return;

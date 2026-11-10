@@ -77,8 +77,10 @@ export function installTooltips(root: Document | ShadowRoot, layer: HTMLElement 
   addEventListener('scroll', hide, { capture: true, passive: true });
   addEventListener('keydown', (e) => e.key === 'Escape' && hide());
 
-  // Live text change (e.g. Play -> Stop) while the tip is open.
   return {
+    /** Hide now, and cancel a tip that is waiting to appear (call on click). */
+    hide,
+    // Live text change (e.g. Play -> Stop) while the tip is open.
     refresh(el: HTMLElement) {
       if (target === el) tip.textContent = el.dataset.tip ?? '';
     },
